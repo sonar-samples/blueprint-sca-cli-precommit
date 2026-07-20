@@ -306,8 +306,8 @@ Open your project in SonarQube Cloud to see the dependency-risk view, which adds
 
 Two companion blueprints cover the broader SonarQube CLI surface:
 
-- *The Agent Centric Development Cycle with the SonarQube CLI* adds secrets scanning, agentic analysis, and remediation to the workflow alongside dependency-risk scanning
-- *SonarQube CLI: what it does and how to set it up* covers the complete CLI for developers new to the tool
+- [*The Agent Centric Development Cycle with the SonarQube CLI*](https://github.com/sonar-samples/blueprint-acdc-cli) adds secrets scanning, agentic analysis, and remediation to the workflow alongside dependency-risk scanning
+- [*SonarQube CLI: what it does and how to set it up*](https://github.com/sonar-samples/blueprint-sonarqube-cli) covers the complete CLI for developers new to the tool
 
 Documentation references:
 
