@@ -4,6 +4,13 @@
 >
 > This private preservation package retains demo output captured with SonarQube CLI 1.3.0 and SonarQube Cloud on 2026-07-14. Results, commands, plan requirements, and entitlements may differ by release, project, organization, and configuration. Check the linked current product documentation before applying these instructions to a live environment.
 
+## TL;DR
+
+- The SonarQube CLI’s pre-commit hook can run dependency-risk analysis at commit time, blocking newly introduced MEDIUM, HIGH, or BLOCKER vulnerability, malware, and prohibited-license risks before they enter local history.
+- The hook skips dependency-risk analysis when only application code changed, while secrets detection still runs.
+- Dependency discovery happens locally, while SonarQube Cloud evaluates the uploaded dependency snapshot, manifests, and lockfiles against vulnerability, malware, and license-risk data.
+- Risk results can include CVE identifiers, severity, and recommended versions for vulnerability risks, with support for npm, Python, and other ecosystems supported by SonarQube SCA.
+
 ## Overview
 
 This blueprint sets up dependency-risk scanning with the [SonarQube CLI](https://docs.sonarsource.com/sonarqube-cli/) so that a pre-commit hook blocks vulnerable packages before they enter your repository. By the end, your Git workflow will analyze staged manifest and lockfile changes against [SonarQube Cloud](https://www.sonarsource.com/products/sonarqube/cloud/), reject commits that introduce new risks at MEDIUM severity or higher, and skip dependency-risk analysis when nothing dependency-related changes. The primary example uses npm with `package.json` and `package-lock.json`, while a secondary section covers Python `requirements.txt` to show where ecosystem differences affect the setup.
